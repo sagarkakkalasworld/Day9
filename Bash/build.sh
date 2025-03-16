@@ -6,7 +6,7 @@ cd gold/
 sudo git clone https://github.com/sagarkakkalasworld/Day9.git
 cd Day9/Code
 git_commit=$(sudo git rev-parse HEAD)
-sudo docker build -t react-microk8s -f golddockerfile .
+sudo docker build -t react-microk8s:$git_commit -f golddockerfile .
 sudo docker tag react-microk8s:$git_commit sagarkakkalasworld/react-microk8s:$git_commit
 sudo docker push sagarkakkalasworld/react-microk8s:$git_commit
 aws s3 rm s3://gitcommittagbucket/new_value.txt
