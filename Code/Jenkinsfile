@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Remove existing Day6 directory and clone the latest repo
-                    sh "ssh ubuntu@${BUILD_SERVER_IP} 'sudo rm -rf /home/ubuntu/Day* && git clone https://github.com/sagarkakkalasworld/Day8.git /home/ubuntu/Day7'"
+                    sh "ssh ubuntu@${BUILD_SERVER_IP} 'sudo rm -rf /home/ubuntu/Day* && git clone https://github.com/sagarkakkalasworld/Day9.git /home/ubuntu/Day9'"
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Execute Ansible playbook on Build Server
-                    sh "ssh ubuntu@${BUILD_SERVER_IP} 'ansible-playbook /home/ubuntu/Day8/Ansible/build.yaml'"
+                    sh "ssh ubuntu@${BUILD_SERVER_IP} 'ansible-playbook /home/ubuntu/Day9/Ansible/build.yaml'"
                 }
             }
         }
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     // Execute deployment playbook on Deploy Server
-                    sh "ssh ubuntu@${BUILD_SERVER_IP} 'ansible-playbook /home/ubuntu/Day8/Ansible/deploy.yaml'"
+                    sh "ssh ubuntu@${BUILD_SERVER_IP} 'ansible-playbook /home/ubuntu/Day9/Ansible/deploy.yaml'"
                 }
             }
         }
